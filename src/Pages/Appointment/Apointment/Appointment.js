@@ -1,11 +1,11 @@
 import React from 'react';
-import doctor from '../../../assets/images/doctor.png'
+import doctor from '../../../assets/images/doctor-small.png'
 import appointment from '../../../assets/images/appointment.png';
 import PrimaryButton from '../../PrimaryButton/PrimaryButton';
 
 const Appointment = () => {
     return (
-        <div className='flex items-center my-40' style={{ background: `url(${appointment})` }}>
+        <div className='flex items-center my-24 p-10' style={{ background: `url(${appointment})` }}>
             <div className='-mt-36 hidden lg:block'><img src={doctor} alt="" /></div>
             <div className="">
                 <div className="text-start text-white">

@@ -1,5 +1,5 @@
 import React from "react";
-import Appointment from "../Appointment/Appointment";
+import Appointment from "../../Appointment/Apointment/Appointment"
 import Banner from "../Banner/Banner";
 import Care from "../Care/Care";
 import Form from "../Form/Form";
@@ -12,11 +12,9 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <div className="px-12">
-        <Info></Info>
-        <Services></Services>
-        <Care></Care>
-      </div>
+      <Info></Info>
+      <Services></Services>
+      <Care></Care>
       <Appointment></Appointment>
       <Testimonials></Testimonials>
       <Form></Form>

@@ -3,7 +3,7 @@ import quote from "../../../assets/icons/quote.svg"
 import people1 from "../../../assets/images/people1.png"
 import people2 from "../../../assets/images/people2.png"
 import people3 from "../../../assets/images/people3.png"
-import TestimonialCard from '../Home/TestimonialCard/TestimonialCard';
+import TestimonialCard from '../TestimonialCard/TestimonialCard';
 
 const Testimonials = () => {
     const testimonials = [
@@ -34,8 +34,8 @@ const Testimonials = () => {
         <div>
             <div className='flex justify-between'>
                 <div className='p-10'>
-                    <h3 class="text-3xl font-bold text-primary">Testimonial</h3>
-                    <h2 class="text-4xl font-semibold">What Our Patients Says</h2>
+                    <h3 className="text-3xl font-bold text-primary">Testimonial</h3>
+                    <h2 className="text-4xl font-semibold">What Our Patients Says</h2>
                 </div>
                 <div className='w-24 lg:w-32'>
                     <img src={quote} alt="quote.png" />
