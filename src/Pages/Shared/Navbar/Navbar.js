@@ -24,8 +24,11 @@ const Navbar = () => {
                 <Link to="/reviews">Reviews</Link>
             </li>
             <li className="text-md font-medium">
-                <Link to="/contact">Contact Us</Link>
+                <Link to="/contact">Contact</Link>
             </li>
+            {
+                user && (<li className="text-md font-medium"><Link to="/dashboard">Dashboard</Link></li>)
+            }
             <li className="text-md font-medium">
                 {
                     user ? <button onClick={logOut} className="btn btn-secondary text-white">Logout</button> : <Link to="/login">Login</Link>
@@ -70,6 +73,24 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal p-0">
                         {MenuItems}
                     </ul>
+                </div>
+                <div className="navbar-end">
+                    <label tabIndex="1" htmlFor="my-drawer-2" className="btn btn-ghost lg:hidden">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M4 6h16M4 12h8m-8 6h16"
+                            />
+                        </svg>
+                    </label>
                 </div>
 
             </div>

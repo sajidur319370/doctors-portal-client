@@ -11,6 +11,9 @@ const AppointmentCard = ({ service, setTreatment }) => {
                         slots.length ? <span>{slots[0]}</span> : <span className='text-red-800'>Unavilable slot</span>
                     }
                 </p>
+                <p>
+                    {slots.length} spaces available
+                </p>
                 <div className="card-actions justify-center">
                     <label htmlFor="booking-modal" onClick={() => setTreatment(service)} disabled={slots.length === 0} className="btn btn-primary bg-gradient-to-r from-primary to-secondary uppercase text-white font-bold">Books Appointment</label>
                 </div>
