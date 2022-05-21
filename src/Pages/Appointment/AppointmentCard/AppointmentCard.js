@@ -1,8 +1,7 @@
 import React from 'react';
 
-const ServiceCard = ({ service, setTreatment }) => {
+const AppointmentCard = ({ service, setTreatment }) => {
     const { name, slots } = service;
-
     return (
         <div className="card shadow-xl">
             <div className="card-body">
@@ -20,4 +19,4 @@ const ServiceCard = ({ service, setTreatment }) => {
     );
 };
 
-export default ServiceCard;
+export default AppointmentCard;
