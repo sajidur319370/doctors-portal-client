@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import auth from '../../../Firebase.init';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import Loading from '../../Shared/Loading/Loading';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { toast } from 'react-toastify';
+import useToken from '../../../hooks/useToken';
 const SignUp = () => {
     const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     const [
         createUserWithEmailAndPassword,
         user,
@@ -14,18 +18,21 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-
-
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
-        await updateProfile(data.name);
-        alert('Updated profile');
-        navigate("/appointment")
+        await updateProfile({ displayName: data.name });
+        toast('Updated profile');
+
     }
-    if (user) {
-        console.log(user);
-    }
+    const [token] = useToken(user);
+    useEffect(() => {
+        if (token) {
+            console.log(user);
+            navigate(from, { replace: true });
+        }
+    }, [from, navigate, token, user])
+
 
     if (loading || updating) {
         return <Loading></Loading>

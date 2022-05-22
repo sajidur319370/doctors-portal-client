@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import Loading from '../../Shared/Loading/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import useToken from '../../../hooks/useToken';
 
 
 const Login = () => {
@@ -22,14 +23,14 @@ const Login = () => {
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password)
     }
-
+    const [token] = useToken(user);
     useEffect(() => {
-        if (user) {
+        if (token) {
             console.log(user);
             navigate(from, { replace: true });
         }
 
-    }, [user, navigate, from])
+    }, [from, navigate, token, user])
 
     if (loading) {
         return <Loading></Loading>
