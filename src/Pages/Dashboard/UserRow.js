@@ -7,15 +7,24 @@ const UserRow = ({ user, index, refetch }) => {
         fetch(`http://localhost:5000/user/admin/${email}`, {
             method: "PUT",
             headers: {
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`,
             }
 
         })
-            .then(res => res.json())
+            .then(res => {
+                if (res.status === 403) {
+                    toast("Failed to make an admin!!!");
+                }
+                return res.json()
+            })
             .then(data => {
-                refetch()
+
                 console.log(data);
-                toast.success("Successfully Make an Admin!!")
+                if (data.modifiedCount > 0) {
+                    refetch();
+                    toast.success("Successfully Make an Admin!!");
+                }
+
             });
     }
     return (
