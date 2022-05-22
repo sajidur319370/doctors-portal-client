@@ -3,7 +3,7 @@ import React from 'react';
 const MyIntroduction = () => {
     return (
         <div>
-            <p className="font-bold text-2xl text-accent pl-2">My Introduction</p>
+            <h2 className='font-semibold text-red-400 text-xl pl-2'>My Introduction</h2>
         </div>
     );
 };
