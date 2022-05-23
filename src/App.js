@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import 'react-toastify/dist/ReactToastify.css';
 import About from "./Pages/About/About";
 import AppointmentPage from "./Pages/Appointment/AppointmentPage/AppointmentPage";
 import Contact from "./Pages/Contact/Contact";
@@ -11,13 +12,14 @@ import Reviews from "./Pages/Reviews/Reviews";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyAppointments from "./Pages/Dashboard/MyAppointments";
 import MyReviews from "./Pages/Dashboard/MyReviews";
 import MyIntroduction from "./Pages/Dashboard/MyIntroduction";
 import Allusers from "./Pages/Dashboard/Allusers";
 import RequireAdmin from "./Pages/Login/RequireAdmin/RequireAdmin";
+import AddDoctor from "./Pages/Dashboard/AddDoctor";
+import ManageDoctor from "./Pages/Dashboard/ManageDoctor";
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
           <Route path="review" element={<MyReviews></MyReviews>}></Route>
           <Route path="introduction" element={<MyIntroduction></MyIntroduction>}></Route>
           <Route path="users" element={<RequireAdmin><Allusers></Allusers></RequireAdmin>}></Route>
+          <Route path="addDoctor" element={<RequireAdmin><AddDoctor></AddDoctor></RequireAdmin>}></Route>
+          <Route path="manageDoctor" element={<RequireAdmin><ManageDoctor></ManageDoctor></RequireAdmin>}></Route>
         </Route>
       </Routes>
       <Footer></Footer>

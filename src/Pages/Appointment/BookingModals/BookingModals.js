@@ -54,7 +54,7 @@ const BookingModals = ({ treatment, date, setTreatment, refetch }) => {
                     <form onSubmit={handleBooking}>
                         <input type="text" disabled readOnly value={format(date, 'PP')} className="input input-bordered input-secondary w-full max-w-xs mb-4" />
 
-                        <select name='slot' defaultValue=" " className="select w-full max-w-xs mb-4">
+                        <select name='slot' defaultValue=" " className="select w-full input-bordered max-w-xs mb-4">
                             <option disabled value=" ">Select A slot</option>
                             {
                                 slots.map((slot, index) => <option key={index} value={slot}>{slot}</option>)

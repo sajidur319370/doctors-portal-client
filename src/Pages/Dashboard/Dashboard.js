@@ -21,7 +21,11 @@ const Dashboard = () => {
                     <li className='font-semibold'><Link to='/dashboard'>My Appointments</Link></li>
                     <li className='font-semibold'><Link to='/dashboard/review'>My Reviews</Link></li>
                     <li className='font-semibold'><Link to='/dashboard/introduction'>My Introduction</Link></li>
-                    {admin && <li className='font-semibold'><Link to='/dashboard/users'>All Users</Link></li>}
+                    {admin && <>
+                        <li className='font-semibold'><Link to='/dashboard/users'>All Users</Link></li>
+                        <li className='font-semibold'><Link to='/dashboard/addDoctor'>Add a Doctor</Link></li>
+                        <li className='font-semibold'><Link to='/dashboard/manageDoctor'>Manage Doctors</Link></li>
+                    </>}
                 </ul>
 
             </div>
