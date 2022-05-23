@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AppointmentCard = ({ service, setTreatment }) => {
-    const { name, slots } = service;
+    const { name, slots, price } = service;
     return (
         <div className="card shadow-xl">
             <div className="card-body">
@@ -12,8 +12,9 @@ const AppointmentCard = ({ service, setTreatment }) => {
                     }
                 </p>
                 <p>
-                    {slots.length} spaces available
+                    {slots.length} Spaces available
                 </p>
+                <p className="text-indigo-900 font-normal text-md uppercase">Price: <span className=' text-lg text-red-900 font-medium'>${price}</span></p>
                 <div className="card-actions justify-center">
                     <label htmlFor="booking-modal" onClick={() => setTreatment(service)} disabled={slots.length === 0} className="btn btn-primary bg-gradient-to-r from-primary to-secondary uppercase text-white font-bold">Books Appointment</label>
                 </div>
