@@ -25,7 +25,7 @@ const BookingModals = ({ treatment, date, setTreatment, refetch }) => {
         }
 
 
-        fetch("http://localhost:5000/booking", {
+        fetch("https://ancient-hollows-87926.herokuapp.com/booking", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

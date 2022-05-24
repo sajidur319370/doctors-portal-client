@@ -6,7 +6,7 @@ import Loading from '../Shared/Loading/Loading';
 
 const AddDoctor = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { data: services, isLoading } = useQuery('services', () => fetch("http://localhost:5000/service").then(res => res.json()))
+    const { data: services, isLoading } = useQuery('services', () => fetch("https://ancient-hollows-87926.herokuapp.com/service").then(res => res.json()))
 
     const imageStorageApiKey = '1391f873a11301e1b864913d536e7208';
 
@@ -32,7 +32,7 @@ const AddDoctor = () => {
                         img: img
                     }
                     // send to Your database
-                    fetch('http://localhost:5000/doctor', {
+                    fetch('https://ancient-hollows-87926.herokuapp.com/doctor', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
