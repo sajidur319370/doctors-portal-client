@@ -31,7 +31,7 @@ const UserRow = ({ user, index, refetch }) => {
         <tr >
             <th>{index + 1}</th>
             <td>{email}</td>
-            <td>{role ? <p className="bg-green-500 rounded-md text-accent inline-block px-2">Admin</p> : <button onClick={makeAdmin} className="btn btn-xs btn-secondary">Make Admin</button>}</td>
+            <td>{role ? <p className="bg-green-500 rounded-md text-accent inline-block px-2">Admin</p> : <button onClick={makeAdmin} className="btn btn-xs bg-indigo-500">Make Admin</button>}</td>
             <td><button className="btn btn-xs bg-red-600">Remove User</button></td>
 
         </tr>

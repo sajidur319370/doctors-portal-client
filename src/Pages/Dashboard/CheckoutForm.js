@@ -7,7 +7,7 @@ const CheckoutForm = ({ appointment }) => {
     const [cardError, setCardError] = useState("");
     const [clientSecret, setClientSecret] = useState("");
     const [success, setSuccess] = useState("");
-    const [transectionId, setTransectionId] = useState("");
+    const [transactionId, setTransactionId] = useState("");
     const [processing, setProcessing] = useState(false);
 
     const { price, patientName, patientEmail, _id } = appointment;
@@ -66,13 +66,13 @@ const CheckoutForm = ({ appointment }) => {
             setCardError(intentError.message);
         } else {
             setCardError("");
-            setTransectionId(paymentIntent.id);
+            setTransactionId(paymentIntent.id);
             console.log(paymentIntent);
             setSuccess("Congrats! Your payment is completed.");
             // =====Store payment on database========
             const payment = {
                 appointment: _id,
-                transectionId: paymentIntent.id
+                transactionId: paymentIntent.id
             }
             fetch(`http://localhost:5000/booking/${_id}`, {
                 method: "PATCH",
@@ -109,7 +109,7 @@ const CheckoutForm = ({ appointment }) => {
                     <p className="text-green-500 text-base font-medium">{success}</p>
                     <p className=" text-base font-medium">
                         Your transaction id:{" "}
-                        <span className="text-orange-700">{transectionId}</span>
+                        <span className="text-orange-700">{transactionId}</span>
                     </p>
                 </div>
             )}
